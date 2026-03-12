@@ -1,15 +1,16 @@
 # CommitCraft Backend
 
-FastAPI backend for CommitCraft — AI-powered commit message and PR description generator.
+FastAPI backend for CommitCraft - AI-powered commit message and PR description generator.
 
 ## Tech Stack
 
 - **Framework**: FastAPI
 - **Package Manager**: uv
-- **LLM**: Nemotron 120B via OpenRouter (free tier)
+- **LLM**: Nemotron 120B via OpenRouter
 - **Hosting**: Vercel (serverless)
 
 ## Project Structure
+
 ```
 commitcraft/
 ├── api/
@@ -44,6 +45,7 @@ commitcraft/
 - OpenRouter API key (https://openrouter.ai/keys)
 
 ### Installation
+
 ```bash
 git clone https://github.com/yourusername/commitcraft-backend.git
 cd commitcraft-backend
@@ -56,6 +58,7 @@ cp .env.example .env
 ```
 
 ### Run Locally
+
 ```bash
 # Activate venv
 # Windows
@@ -71,14 +74,16 @@ Server runs at http://localhost:8000
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | / | Health check |
-| GET | /health | Health status |
-| POST | /generate/commit | Generate commit message |
-| POST | /generate/pr | Generate PR description |
+
+| Method | Endpoint         | Description             |
+| -------- | ------------------ | ------------------------- |
+| GET    | /                | Health check            |
+| GET    | /health          | Health status           |
+| POST   | /generate/commit | Generate commit message |
+| POST   | /generate/pr     | Generate PR description |
 
 ### Generate Commit Message
+
 ```bash
 curl -X POST http://localhost:8000/generate/commit \
   -H "Content-Type: application/json" \
@@ -86,6 +91,7 @@ curl -X POST http://localhost:8000/generate/commit \
 ```
 
 Response:
+
 ```json
 {
   "content": "feat(auth): add JWT authentication to user login"
@@ -93,6 +99,7 @@ Response:
 ```
 
 ### Generate PR Description
+
 ```bash
 curl -X POST http://localhost:8000/generate/pr \
   -H "Content-Type: application/json" \
@@ -104,11 +111,13 @@ curl -X POST http://localhost:8000/generate/pr \
 
 ## Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| OPENROUTER_API_KEY | OpenRouter API key | Yes |
+
+| Variable           | Description        | Required |
+| -------------------- | -------------------- | ---------- |
+| OPENROUTER_API_KEY | OpenRouter API key | Yes      |
 
 ## Deployment (Vercel)
+
 ```bash
 npm i -g vercel
 vercel
